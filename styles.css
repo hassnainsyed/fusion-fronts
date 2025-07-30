@@ -33,10 +33,10 @@
     --shadow-heavy: 0 20px 60px rgba(0, 207, 253, 0.2);
     --shadow-glow: 0 0 40px rgba(162, 89, 255, 0.3);
     
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-smooth: 0.3s ease;
-    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Transitions - Optimized for performance */
+    --transition-fast: 0.15s ease;
+    --transition-smooth: 0.2s ease;
+    --transition-slow: 0.3s ease;
     
     /* Z-index layers */
     --z-preloader: 9999;
@@ -71,44 +71,15 @@ body {
     color: var(--black);
     background: var(--light-gray);
     overflow-x: hidden;
-    cursor: none; /* Hide default cursor for custom cursor */
+    /* Custom cursor removed for better performance */
 }
 
 /* =================================
-   Custom Cursor
+   Custom Cursor - DISABLED FOR PERFORMANCE
    ================================= */
-.custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: var(--primary-gradient);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: var(--z-cursor);
-    mix-blend-mode: difference;
-    transition: transform var(--transition-fast);
-}
-
+.custom-cursor,
 .custom-cursor-trail {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: rgba(162, 89, 255, 0.6);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: calc(var(--z-cursor) - 1);
-    transition: transform 0.1s ease;
-}
-
-/* Cursor hover states */
-body:hover .custom-cursor {
-    transform: scale(1.5);
-}
-
-a:hover ~ .custom-cursor,
-button:hover ~ .custom-cursor {
-    transform: scale(2);
-    background: var(--neon-purple);
+    display: none !important;
 }
 
 /* =================================
@@ -426,18 +397,9 @@ button:hover ~ .custom-cursor {
     box-shadow: var(--shadow-heavy);
 }
 
+/* Button glow effect simplified for performance */
 .button-glow {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s ease;
-}
-
-.cta-button:hover .button-glow {
-    left: 100%;
+    display: none;
 }
 
 .hero-scroll-indicator {
@@ -511,16 +473,25 @@ section {
     margin: 0 auto;
 }
 
-/* Text reveal animation */
+/* Text reveal animation - optimized for performance */
 .text-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    will-change: opacity, transform;
 }
 
 .text-reveal.revealed {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Performance optimizations */
+.service-card,
+.portfolio-item,
+.job-card,
+.cta-button {
+    will-change: transform;
 }
 
 /* =================================
@@ -651,24 +622,11 @@ section {
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-heavy);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
 }
 
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(162, 89, 255, 0.1), transparent);
-    transition: left 0.6s ease;
-}
-
-.service-card:hover::before {
-    left: 100%;
-}
+/* Removed heavy pseudo-element animations for performance */
 
 .service-icon {
     width: 80px;
@@ -768,8 +726,8 @@ section {
 }
 
 .portfolio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-heavy);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
 }
 
 .portfolio-image {
