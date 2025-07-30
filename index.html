@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion Fronts - Modern Software Agency</title>
+    <meta name="description" content="Fusion Fronts - Innovative software solutions blending creativity with cutting-edge technology">
+    <meta name="keywords" content="software agency, web development, mobile apps, UI/UX design, cloud solutions, AI services">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="logo-morph">
+                <svg viewBox="0 0 200 80" class="logo-svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00CFFD"/>
+                            <stop offset="100%" style="stop-color:#A259FF"/>
+                        </linearGradient>
+                    </defs>
+                    <text x="100" y="50" text-anchor="middle" fill="url(#logoGradient)" class="logo-text">FF</text>
+                </svg>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-trail"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg viewBox="0 0 200 80" class="nav-logo-svg">
+                    <defs>
+                        <linearGradient id="navLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00CFFD"/>
+                            <stop offset="100%" style="stop-color:#A259FF"/>
+                        </linearGradient>
+                    </defs>
+                    <text x="100" y="50" text-anchor="middle" fill="url(#navLogoGradient)" class="nav-logo-text">Fusion Fronts</text>
+                </svg>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#careers" class="nav-link">Careers</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" id="theme-toggle">
+                <div class="toggle-track">
+                    <div class="toggle-thumb"></div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <canvas id="hero-canvas" class="hero-canvas"></canvas>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="text-reveal">Fusion</span>
+                        <span class="text-reveal">Fronts</span>
+                    </h1>
+                    <p class="hero-subtitle text-reveal">
+                        Where Innovation Meets Digital Excellence
+                    </p>
+                    <p class="hero-description text-reveal">
+                        We craft cutting-edge software solutions that push the boundaries of technology and creativity
+                    </p>
+                    <div class="hero-cta text-reveal">
+                        <button class="cta-button primary">
+                            <span>Start Your Project</span>
+                            <div class="button-glow"></div>
+                        </button>
+                        <button class="cta-button secondary">
+                            <span>View Our Work</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title text-reveal">About Fusion Fronts</h2>
+                    <p class="section-subtitle text-reveal">The Perfect Fusion of Creativity and Technology</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-description text-reveal">
+                            <p>At Fusion Fronts, we believe that exceptional software is born from the perfect fusion of creative vision and technical expertise. Our team of passionate developers, designers, and strategists work together to create digital experiences that don't just meet expectations—they exceed them.</p>
+                            <p>Founded on the principle that technology should be beautiful, intuitive, and transformative, we've helped hundreds of businesses revolutionize their digital presence.</p>
+                        </div>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item text-reveal">
+                                <div class="stat-number" data-count="150">0</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-item text-reveal">
+                                <div class="stat-number" data-count="50">0</div>
+                                <div class="stat-label">Happy Clients</div>
+                            </div>
+                            <div class="stat-item text-reveal">
+                                <div class="stat-number" data-count="5">0</div>
+                                <div class="stat-label">Years of Excellence</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-timeline">
+                        <div class="timeline-item text-reveal">
+                            <div class="timeline-icon">🚀</div>
+                            <div class="timeline-content">
+                                <h3>2019 - Launch</h3>
+                                <p>Started with a vision to revolutionize software development</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item text-reveal">
+                            <div class="timeline-icon">💡</div>
+                            <div class="timeline-content">
+                                <h3>2020 - Innovation</h3>
+                                <p>Expanded into AI and machine learning solutions</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item text-reveal">
+                            <div class="timeline-icon">🌟</div>
+                            <div class="timeline-content">
+                                <h3>2022 - Recognition</h3>
+                                <p>Award-winning agency for digital excellence</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item text-reveal">
+                            <div class="timeline-icon">🔮</div>
+                            <div class="timeline-content">
+                                <h3>2024 - Future</h3>
+                                <p>Leading the next generation of digital innovation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title text-reveal">Our Services</h2>
+                    <p class="section-subtitle text-reveal">Comprehensive Solutions for Digital Excellence</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card glassmorphism text-reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="16,18 22,12 16,6"></polyline>
+                                <polyline points="8,6 2,12 8,18"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Modern, responsive websites built with cutting-edge technologies and optimized for performance.</p>
+                        <ul>
+                            <li>React & Vue.js Applications</li>
+                            <li>Progressive Web Apps</li>
+                            <li>E-commerce Solutions</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card glassmorphism text-reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>Mobile Apps</h3>
+                        <p>Native and cross-platform mobile applications that deliver exceptional user experiences.</p>
+                        <ul>
+                            <li>iOS & Android Development</li>
+                            <li>React Native Solutions</li>
+                            <li>App Store Optimization</li>
+                            <li>Mobile-First Design</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card glassmorphism text-reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>User-centered design that combines aesthetics with functionality for optimal user experiences.</p>
+                        <ul>
+                            <li>User Research & Testing</li>
+                            <li>Wireframing & Prototyping</li>
+                            <li>Design Systems</li>
+                            <li>Accessibility Optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card glassmorphism text-reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Cloud Solutions</h3>
+                        <p>Scalable cloud infrastructure and services that grow with your business needs.</p>
+                        <ul>
+                            <li>AWS & Azure Deployment</li>
+                            <li>Microservices Architecture</li>
+                            <li>DevOps & CI/CD</li>
+                            <li>Cloud Migration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card glassmorphism text-reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="7.5,4.21 12,6.81 16.5,4.21"></polyline>
+                                <polyline points="7.5,19.79 7.5,14.6 3,12"></polyline>
+                                <polyline points="21,12 16.5,14.6 16.5,19.79"></polyline>
+                            </svg>
+                        </div>
+                        <h3>AI Services</h3>
+                        <p>Intelligent solutions powered by machine learning and artificial intelligence technologies.</p>
+                        <ul>
+                            <li>Machine Learning Models</li>
+                            <li>Natural Language Processing</li>
+                            <li>Computer Vision</li>
+                            <li>AI Integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card glassmorphism text-reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                            </svg>
+                        </div>
+                        <h3>Performance Optimization</h3>
+                        <p>Maximize your application's speed, efficiency, and user satisfaction with our optimization services.</p>
+                        <ul>
+                            <li>Code Optimization</li>
+                            <li>Database Tuning</li>
+                            <li>CDN Implementation</li>
+                            <li>Monitoring & Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title text-reveal">Our Portfolio</h2>
+                    <p class="section-subtitle text-reveal">Showcasing Excellence in Digital Innovation</p>
+                </div>
+                
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                    <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                    <button class="filter-btn" data-filter="ai">AI Solutions</button>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-category="web">
+                        <div class="portfolio-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <span>E-Commerce Platform</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>TechStore Pro</h3>
+                            <p>Modern e-commerce platform with advanced analytics</p>
+                            <div class="portfolio-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <button class="portfolio-btn" data-project="techstore">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="mobile">
+                        <div class="portfolio-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <span>Fitness App</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>FitTrack</h3>
+                            <p>AI-powered fitness tracking mobile application</p>
+                            <div class="portfolio-tags">
+                                <span>React Native</span>
+                                <span>TensorFlow</span>
+                                <span>Firebase</span>
+                            </div>
+                            <button class="portfolio-btn" data-project="fittrack">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="design">
+                        <div class="portfolio-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <span>Banking Dashboard</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>SecureBank UI</h3>
+                            <p>Intuitive banking dashboard with advanced security</p>
+                            <div class="portfolio-tags">
+                                <span>Figma</span>
+                                <span>Vue.js</span>
+                                <span>D3.js</span>
+                            </div>
+                            <button class="portfolio-btn" data-project="securebank">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="ai">
+                        <div class="portfolio-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                <span>AI Chatbot</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>IntelliChat</h3>
+                            <p>Advanced AI chatbot with natural language processing</p>
+                            <div class="portfolio-tags">
+                                <span>Python</span>
+                                <span>OpenAI</span>
+                                <span>FastAPI</span>
+                            </div>
+                            <button class="portfolio-btn" data-project="intellichat">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="web">
+                        <div class="portfolio-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                                <span>Real Estate Portal</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>PropertyHub</h3>
+                            <p>Comprehensive real estate platform with virtual tours</p>
+                            <div class="portfolio-tags">
+                                <span>Next.js</span>
+                                <span>Three.js</span>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <button class="portfolio-btn" data-project="propertyhub">View Case Study</button>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="mobile">
+                        <div class="portfolio-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                                <span>Food Delivery</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>QuickEats</h3>
+                            <p>Fast food delivery app with real-time tracking</p>
+                            <div class="portfolio-tags">
+                                <span>Flutter</span>
+                                <span>Google Maps</span>
+                                <span>Stripe</span>
+                            </div>
+                            <button class="portfolio-btn" data-project="quickeats">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Careers Section -->
+        <section id="careers" class="careers">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title text-reveal">Join Our Team</h2>
+                    <p class="section-subtitle text-reveal">Build the Future of Digital Innovation</p>
+                </div>
+                
+                <div class="careers-content">
+                    <div class="careers-intro text-reveal">
+                        <h3>Why Choose Fusion Fronts?</h3>
+                        <p>We're not just building software—we're crafting the future. Join a team of passionate innovators who believe in pushing boundaries and creating extraordinary digital experiences.</p>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">💰</div>
+                                <h4>Competitive Salary</h4>
+                                <p>Industry-leading compensation packages</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🏠</div>
+                                <h4>Remote First</h4>
+                                <p>Work from anywhere in the world</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">📚</div>
+                                <h4>Learning Budget</h4>
+                                <p>$3000 annual learning and development fund</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🌟</div>
+                                <h4>Growth Path</h4>
+                                <p>Clear career progression opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-openings">
+                        <h3 class="text-reveal">Open Positions</h3>
+                        
+                        <div class="job-card glassmorphism text-reveal">
+                            <div class="job-header">
+                                <h4>Senior Full-Stack Developer</h4>
+                                <span class="job-type">Full-time</span>
+                            </div>
+                            <p class="job-description">Lead the development of cutting-edge web applications using modern frameworks and cloud technologies.</p>
+                            <div class="job-skills">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>AWS</span>
+                                <span>TypeScript</span>
+                            </div>
+                            <div class="job-meta">
+                                <span class="job-location">🌍 Remote</span>
+                                <span class="job-salary">💰 $80k - $120k</span>
+                            </div>
+                            <button class="job-apply-btn">Apply Now</button>
+                        </div>
+                        
+                        <div class="job-card glassmorphism text-reveal">
+                            <div class="job-header">
+                                <h4>UX/UI Designer</h4>
+                                <span class="job-type">Full-time</span>
+                            </div>
+                            <p class="job-description">Create intuitive and beautiful user experiences that delight our clients and their users.</p>
+                            <div class="job-skills">
+                                <span>Figma</span>
+                                <span>Sketch</span>
+                                <span>Prototyping</span>
+                                <span>User Research</span>
+                            </div>
+                            <div class="job-meta">
+                                <span class="job-location">🌍 Remote</span>
+                                <span class="job-salary">💰 $70k - $100k</span>
+                            </div>
+                            <button class="job-apply-btn">Apply Now</button>
+                        </div>
+                        
+                        <div class="job-card glassmorphism text-reveal">
+                            <div class="job-header">
+                                <h4>DevOps Engineer</h4>
+                                <span class="job-type">Full-time</span>
+                            </div>
+                            <p class="job-description">Build and maintain scalable infrastructure that powers our innovative solutions.</p>
+                            <div class="job-skills">
+                                <span>Docker</span>
+                                <span>Kubernetes</span>
+                                <span>CI/CD</span>
+                                <span>Terraform</span>
+                            </div>
+                            <div class="job-meta">
+                                <span class="job-location">🌍 Remote</span>
+                                <span class="job-salary">💰 $85k - $130k</span>
+                            </div>
+                            <button class="job-apply-btn">Apply Now</button>
+                        </div>
+                        
+                        <div class="job-card glassmorphism text-reveal">
+                            <div class="job-header">
+                                <h4>Mobile App Developer</h4>
+                                <span class="job-type">Contract</span>
+                            </div>
+                            <p class="job-description">Develop native and cross-platform mobile applications that push the boundaries of mobile technology.</p>
+                            <div class="job-skills">
+                                <span>React Native</span>
+                                <span>Swift</span>
+                                <span>Kotlin</span>
+                                <span>Flutter</span>
+                            </div>
+                            <div class="job-meta">
+                                <span class="job-location">🌍 Remote</span>
+                                <span class="job-salary">💰 $60 - $90/hour</span>
+                            </div>
+                            <button class="job-apply-btn">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title text-reveal">Get In Touch</h2>
+                    <p class="section-subtitle text-reveal">Ready to Start Your Next Project?</p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item text-reveal">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Our Office</h3>
+                                <p>123 Innovation Drive<br>San Francisco, CA 94105</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item text-reveal">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Call Us</h3>
+                                <p>+1 (555) 123-4567<br>Mon - Fri, 9AM - 6PM PST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item text-reveal">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Us</h3>
+                                <p>hello@fusionfronts.com<br>We'll respond within 24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links text-reveal">
+                            <h3>Follow Us</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Dribbble">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.17zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.825 0-1.63.1-2.4.285zm10.335 3.483c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.02-2.42-.88-4.64-2.31-6.38z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form glassmorphism text-reveal" id="contact-form">
+                        <h3>Send us a message</h3>
+                        
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="text" id="name" name="name" required>
+                                <label for="name">Your Name</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">Email Address</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="text" id="subject" name="subject" required>
+                                <label for="subject">Subject</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <label for="message">Your Message</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <div class="button-glow"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg viewBox="0 0 200 80" class="footer-logo">
+                        <defs>
+                            <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#00CFFD"/>
+                                <stop offset="100%" style="stop-color:#A259FF"/>
+                            </linearGradient>
+                        </defs>
+                        <text x="100" y="50" text-anchor="middle" fill="url(#footerLogoGradient)" class="footer-logo-text">Fusion Fronts</text>
+                    </svg>
+                    <p>Crafting the future of digital innovation, one project at a time.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Web Development</a></li>
+                            <li><a href="#services">Mobile Apps</a></li>
+                            <li><a href="#services">UI/UX Design</a></li>
+                            <li><a href="#services">Cloud Solutions</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fusion Fronts. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modal -->
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
