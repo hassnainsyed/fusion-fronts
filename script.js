@@ -14,14 +14,14 @@ let mouseX = 0;
 let mouseY = 0;
 let cursorTrailPositions = [];
 
-// Configuration
+// Configuration - Optimized for performance
 const CONFIG = {
-    particleCount: 50,
+    particleCount: 0, // Disabled for performance
     animationSpeed: 0.02,
     cursorTrailLength: 10,
     scrollThreshold: 100,
     textRevealOffset: 0.8,
-    loadingDuration: 3000
+    loadingDuration: 1000 // Reduced for faster UX
 };
 
 // =================================
@@ -87,60 +87,11 @@ function initPreloader() {
 }
 
 // =================================
-// Custom Cursor Implementation
+// Custom Cursor Implementation - DISABLED FOR PERFORMANCE
 // =================================
 function initCustomCursor() {
-    const cursor = document.querySelector('.custom-cursor');
-    const cursorTrail = document.querySelector('.custom-cursor-trail');
-    
-    if (!cursor || !cursorTrail) return;
-    
-    // Initialize cursor trail positions
-    for (let i = 0; i < CONFIG.cursorTrailLength; i++) {
-        cursorTrailPositions.push({ x: 0, y: 0 });
-    }
-    
-    // Mouse move handler
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // Update cursor position
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-        
-        // Update trail positions
-        cursorTrailPositions.unshift({ x: mouseX, y: mouseY });
-        cursorTrailPositions.pop();
-    });
-    
-    // Animate cursor trail
-    function animateCursorTrail() {
-        const trailIndex = Math.floor(CONFIG.cursorTrailLength / 2);
-        const trailPos = cursorTrailPositions[trailIndex];
-        
-        cursorTrail.style.left = trailPos.x + 'px';
-        cursorTrail.style.top = trailPos.y + 'px';
-        
-        requestAnimationFrame(animateCursorTrail);
-    }
-    
-    animateCursorTrail();
-    
-    // Cursor interactions
-    const interactiveElements = document.querySelectorAll('a, button, .portfolio-item, .service-card, .job-card');
-    
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(2)';
-            cursor.style.background = 'var(--neon-purple)';
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-            cursor.style.background = 'var(--primary-gradient)';
-        });
-    });
+    // Custom cursor disabled for better performance
+    return;
 }
 
 // =================================
@@ -154,12 +105,21 @@ function initNavigation() {
     
     if (!navbar) return;
     
-    // Scroll behavior for navbar
-    window.addEventListener('scroll', () => {
+    // Scroll behavior for navbar - throttled for performance
+    let ticking = false;
+    const updateNavbar = () => {
         if (window.scrollY > CONFIG.scrollThreshold) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
+        }
+        ticking = false;
+    };
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
         }
     });
     
@@ -211,105 +171,15 @@ function initNavigation() {
 }
 
 // =================================
-// Hero Canvas Animation
+// Hero Canvas Animation - DISABLED FOR PERFORMANCE
 // =================================
 function initHeroCanvas() {
+    // Canvas animation completely disabled for better performance
     const canvas = document.getElementById('hero-canvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    
-    // Set canvas size
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    if (canvas) {
+        canvas.style.display = 'none';
     }
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // Initialize particles
-    function initParticles() {
-        particles = [];
-        for (let i = 0; i < CONFIG.particleCount; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 3 + 1,
-                speedX: (Math.random() - 0.5) * 2,
-                speedY: (Math.random() - 0.5) * 2,
-                opacity: Math.random() * 0.5 + 0.3,
-                hue: Math.random() * 60 + 200 // Blue to purple range
-            });
-        }
-    }
-    
-    initParticles();
-    
-    // Animate particles
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        particles.forEach((particle, index) => {
-            // Update position
-            particle.x += particle.speedX;
-            particle.y += particle.speedY;
-            
-            // Wrap around edges
-            if (particle.x > canvas.width) particle.x = 0;
-            if (particle.x < 0) particle.x = canvas.width;
-            if (particle.y > canvas.height) particle.y = 0;
-            if (particle.y < 0) particle.y = canvas.height;
-            
-            // Draw particle
-            ctx.beginPath();
-            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${particle.hue}, 70%, 60%, ${particle.opacity})`;
-            ctx.fill();
-            
-            // Connect nearby particles
-            particles.slice(index + 1).forEach(otherParticle => {
-                const distance = Math.sqrt(
-                    Math.pow(particle.x - otherParticle.x, 2) +
-                    Math.pow(particle.y - otherParticle.y, 2)
-                );
-                
-                if (distance < 100) {
-                    ctx.beginPath();
-                    ctx.moveTo(particle.x, particle.y);
-                    ctx.lineTo(otherParticle.x, otherParticle.y);
-                    ctx.strokeStyle = `hsla(${particle.hue}, 70%, 60%, ${0.1 * (1 - distance / 100)})`;
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-                }
-            });
-        });
-        
-        requestAnimationFrame(animateParticles);
-    }
-    
-    animateParticles();
-    
-    // Mouse interaction
-    canvas.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        
-        particles.forEach(particle => {
-            const distance = Math.sqrt(
-                Math.pow(particle.x - mouseX, 2) +
-                Math.pow(particle.y - mouseY, 2)
-            );
-            
-            if (distance < 150) {
-                const force = (150 - distance) / 150;
-                const angle = Math.atan2(particle.y - mouseY, particle.x - mouseX);
-                particle.speedX += Math.cos(angle) * force * 0.5;
-                particle.speedY += Math.sin(angle) * force * 0.5;
-            }
-        });
-    });
+    return;
 }
 
 // =================================
